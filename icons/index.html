@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Manager Icons</title>
+  <link rel="stylesheet" href="icons.css">
+  <style>
+.slider-container {
+  align-items:center;
+  display:flex;
+  height:30px;
+  margin:5px 0;
+}
+.slider-container .label {
+  margin-right:10px;
+}
+.switch {
+  height:20px !important;
+  position: relative;
+  display: inline-block;
+  width: 36px;
+  height: 20px;
+  margin-left:auto;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 12px;
+  width: 12px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #000e9c;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #000e9c;
+}
+
+input:checked + .slider:before {
+  transform: translateX(16px);
+}
+
+.slider.round {
+  border-radius: 10px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+@import url(//fonts.googleapi.com/css?family=Playfair+Display+SC:400italic,700,900|Raleway:500|Martel+Sans:400,700);
+:root {
+  --label-size:calc(((100vw - 350px) / 10) - 10px);
+}
+*,
+*
+*:after {
+  box-sizing:border-box;
+  margin:0;
+  outline:none;
+  padding:0;
+}
+html {
+  font-size:62.5%;
+  height:100vh;
+}
+body {
+  background:#e4e4e4;
+  color:#222c32;
+  font-size:1.6rem;
+  height:100vh;
+  overflow:hidden;
+  overflow-y:scroll;
+}
+main {
+  height:100vh;
+}
+aside {
+  background:#f5f5f5;
+  display:flex;
+  flex-direction:column;
+  height:100vh;
+  left:0;
+  padding:4em 1em 2em;
+  position:fixed;
+  top:0;
+  width:300px;
+  z-index:1000;
+}
+aside h1 {
+  font:700 2.4rem 'Playfair Display';
+  line-height:1.6;
+  text-align:center;
+  text-transform:uppercase;
+}
+.grid {
+  height:100%;
+  margin-left:300px;
+}
+section {
+  padding:25px 20px;
+}
+article {
+  display:flex;
+  flex-wrap:wrap;
+}
+label {
+  align-items:center;
+  background:rgba(0,0,0,.075);
+  border-radius:5px;
+  display:flex;
+  float:left;
+  height:var(--label-size) !important;
+  justify-content:center;
+  margin:5px;
+  width:var(--label-size);
+}
+label i {
+  font-size:4.6rem !important;
+}
+input[type="radio"] {
+  display:none;
+}
+input[type="radio"]:checked + label {
+  background:rgba(255,255,255,.95);
+}
+
+aside .color-list {
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:space-between;
+}
+aside .color-list label {
+  border-radius:50% !important;
+  height:calc(200px / 4) !important;
+  position:relative;
+  width:calc(200px / 4) !important;
+}
+aside .color-list input[type="radio"]:checked + label:before {
+  align-items:center;
+  color:#fafafa;
+  content:'\ea0a';
+  display:flex;
+  font-family:'icons' !important;
+  font-size:3.4rem;
+  font-style:normal;
+  justify-content:center;
+}
+.preview-container {
+  align-items:center;
+  display:flex;
+  flex:1;
+  justify-content:center;
+  margin:4em 0;
+}
+.preview-container i {
+  transform:scale(8);
+}
+textarea {
+  height:1em;
+  opacity:0;
+}
+  </style>
+</head>
+<body>
+  <main>
+    <aside>
+      <h1>Manager<br>icons</h1>
+
+      <div class="preview-container">
+        <!--<i class="icons-ellipsis icons-masterbrand-blue icons-border-rounded"></i>-->
+      </div>
+
+      <div class="slider-container">
+        <span class="label">Rounded border</span>
+        <label class="switch">
+          <input type="checkbox" id="icons-border-rounded" name="rounded-border">
+          <span class="slider round"></span>
+        </label>
+      </div>
+      <div class="slider-container">
+        <span class="label">Custom color</span>
+        <label class="switch">
+          <input type="checkbox" id="custom-color" name="custom-color">
+          <span class="slider round"></span>
+        </label>
+      </div>
+      <div class="color-list">
+        <input type="radio" name="color-list" id="icons-masterbrand-blue" checked></input>
+        <label for="icons-masterbrand-blue" class="icons-masterbrand-blue" style="background:var(--color-masterbrand-blue);"></label>
+        <input type="radio" name="color-list" id="icons-sky-blue"></input>
+        <label for="icons-sky-blue" class="icons-sky-blue" style="background:var(--color-sky-blue);"></label>
+        <input type="radio" name="color-list" id="icons-sky-blue-light"></input>
+        <label for="icons-sky-blue-light" class="icons-sky-blue-light" style="background:var(--color-sky-blue-light);"></label>
+        <input type="radio" name="color-list" id="icons-sky-blue-dark"></input>
+        <label for="icons-sky-blue-dark" class="icons-sky-blue-dark" style="background:var(--color-sky-blue-dark);"></label>
+        <input type="radio" name="color-list" id="icons-green"></input>
+        <label for="icons-green" class="icons-green" style="background:var(--color-green);"></label>
+        <input type="radio" name="color-list" id="icons-green-light"></input>
+        <label for="icons-green-light" class="icons-green-light" style="background:var(--color-green-light);"></label>
+        <input type="radio" name="color-list" id="icons-green-dark"></input>
+        <label for="icons-green-dark" class="icons-green-dark" style="background:var(--color-green-dark);"></label>
+        <input type="radio" name="color-list" id="icons-yellow"></input>
+        <label for="icons-yellow" class="icons-yellow" style="background:var(--color-yellow);"></label>
+        <input type="radio" name="color-list" id="icons-yellow-light"></input>
+        <label for="icons-yellow-light" class="icons-yellow-light" style="background:var(--color-yellow-light);"></label>
+        <input type="radio" name="color-list" id="icons-yellow-dark"></input>
+        <label for="icons-yellow-dark" class="icons-yellow-dark" style="background:var(--color-yellow-dark);"></label>
+        <input type="radio" name="color-list" id="icons-orange"></input>
+        <label for="icons-orange" class="icons-orange" style="background:var(--color-orange);"></label>
+        <input type="radio" name="color-list" id="icons-orange-light"></input>
+        <label for="icons-orange-light" class="icons-orange-light" style="background:var(--color-orange-light);"></label>
+        <input type="radio" name="color-list" id="icons-orange-dark"></input>
+        <label for="icons-orange-dark" class="icons-orange-dark" style="background:var(--color-orange-dark);"></label>
+        <input type="radio" name="color-list" id="icons-gray"></input>
+        <label for="icons-gray" class="icons-gray" style="background:var(--color-gray);"></label>
+        <input type="radio" name="color-list" id="icons-gray-light"></input>
+        <label for="icons-gray-light" class="icons-gray-light" style="background:var(--color-gray-light);"></label>
+        <input type="radio" name="color-list" id="icons-gray-dark"></input>
+        <label for="icons-gray-dark" class="icons-gray-dark" style="background:var(--color-gray-dark);"></label>
+      </div>
+      <textarea></textarea>
+    </aside>
+    <div class="grid">
+      <!--<header>header</header>-->
+      <section>
+        <article class="icons-list">
+          <input type="radio" name="icons-list" id="icons-add"></input>
+          <label for="icons-add"><i class="icons-add"></i></label>
+          <input type="radio" name="icons-list" id="icons-backToV4"></input>
+          <label for="icons-backToV4"><i class="icons-backToV4"></i></label>
+          <input type="radio" name="icons-list" id="icons-bandwidth-concept"></input>
+          <label for="icons-bandwidth-concept"><i class="icons-bandwidth-concept"></i></label>
+          <input type="radio" name="icons-list" id="icons-bar-chart"></input>
+          <label for="icons-bar-chart"><i class="icons-bar-chart"></i></label>
+          <input type="radio" name="icons-list" id="icons-bell"></input>
+          <label for="icons-bell"><i class="icons-bell"></i></label>
+          <input type="radio" name="icons-list" id="icons-bin"></input>
+          <label for="icons-bin"><i class="icons-bin"></i></label>
+          <input type="radio" name="icons-list" id="icons-book"></input>
+          <label for="icons-book"><i class="icons-book"></i></label>
+          <input type="radio" name="icons-list" id="icons-cart"></input>
+          <label for="icons-cart"><i class="icons-cart"></i></label>
+          <input type="radio" name="icons-list" id="icons-certificate"></input>
+          <label for="icons-certificate"><i class="icons-certificate"></i></label>
+          <input type="radio" name="icons-list" id="icons-check"></input>
+          <label for="icons-check"><i class="icons-check"></i></label>
+          <input type="radio" name="icons-list" id="icons-chevron-down"></input>
+          <label for="icons-chevron-down"><i class="icons-chevron-down"></i></label>
+          <input type="radio" name="icons-list" id="icons-chevron-left"></input>
+          <label for="icons-chevron-left"><i class="icons-chevron-left"></i></label>
+          <input type="radio" name="icons-list" id="icons-chevron-right"></input>
+          <label for="icons-chevron-right"><i class="icons-chevron-right"></i></label>
+          <input type="radio" name="icons-list" id="icons-chevron-up"></input>
+          <label for="icons-chevron-up"><i class="icons-chevron-up"></i></label>
+          <input type="radio" name="icons-list" id="icons-close"></input>
+          <label for="icons-close"><i class="icons-close"></i></label>
+          <input type="radio" name="icons-list" id="icons-cloud-essential-concept"></input>
+          <label for="icons-cloud-essential-concept"><i class="icons-cloud-essential-concept"></i></label>
+          <input type="radio" name="icons-list" id="icons-cloud-package"></input>
+          <label for="icons-cloud-package"><i class="icons-cloud-package"></i></label>
+          <input type="radio" name="icons-list" id="icons-cloud-root"></input>
+          <label for="icons-cloud-root"><i class="icons-cloud-root"></i></label>
+          <input type="radio" name="icons-list" id="icons-cloudnas"></input>
+          <label for="icons-cloudnas"><i class="icons-cloudnas"></i></label>
+          <input type="radio" name="icons-list" id="icons-copy"></input>
+          <label for="icons-copy"><i class="icons-copy"></i></label>
+          <input type="radio" name="icons-list" id="icons-database"></input>
+          <label for="icons-database"><i class="icons-database"></i></label>
+          <input type="radio" name="icons-list" id="icons-dedicatedCloud"></input>
+          <label for="icons-dedicatedCloud"><i class="icons-dedicatedCloud"></i></label>
+          <input type="radio" name="icons-list" id="icons-dns-anycast-concept"></input>
+          <label for="icons-dns-anycast-concept"><i class="icons-dns-anycast-concept"></i></label>
+          <input type="radio" name="icons-list" id="icons-domain"></input>
+          <label for="icons-domain"><i class="icons-domain"></i></label>
+          <input type="radio" name="icons-list" id="icons-ellipsis-vertical"></input>
+          <label for="icons-ellipsis-vertical"><i class="icons-ellipsis-vertical"></i></label>
+          <input type="radio" name="icons-list" id="icons-ellipsis"></input>
+          <label for="icons-ellipsis"><i class="icons-ellipsis"></i></label>
+          <input type="radio" name="icons-list" id="icons-error-circle"></input>
+          <label for="icons-error-circle"><i class="icons-error-circle"></i></label>
+          <input type="radio" name="icons-list" id="icons-error"></input>
+          <label for="icons-error"><i class="icons-error"></i></label>
+          <input type="radio" name="icons-list" id="icons-export-concept"></input>
+          <label for="icons-export-concept"><i class="icons-export-concept"></i></label>
+          <input type="radio" name="icons-list" id="icons-eye-closed"></input>
+          <label for="icons-eye-closed"><i class="icons-eye-closed"></i></label>
+          <input type="radio" name="icons-list" id="icons-eye-open"></input>
+          <label for="icons-eye-open"><i class="icons-eye-open"></i></label>
+          <input type="radio" name="icons-list" id="icons-file"></input>
+          <label for="icons-file"><i class="icons-file"></i></label>
+          <input type="radio" name="icons-list" id="icons-filter"></input>
+          <label for="icons-filter"><i class="icons-filter"></i></label>
+          <input type="radio" name="icons-list" id="icons-folder-concept"></input>
+          <label for="icons-folder-concept"><i class="icons-folder-concept"></i></label>
+          <input type="radio" name="icons-list" id="icons-gear-concept"></input>
+          <label for="icons-gear-concept"><i class="icons-gear-concept"></i></label>
+          <input type="radio" name="icons-list" id="icons-graph"></input>
+          <label for="icons-graph"><i class="icons-graph"></i></label>
+          <input type="radio" name="icons-list" id="icons-hamburger"></input>
+          <label for="icons-hamburger"><i class="icons-hamburger"></i></label>
+          <input type="radio" name="icons-list" id="icons-hashtag-concept"></input>
+          <label for="icons-hashtag-concept"><i class="icons-hashtag-concept"></i></label>
+          <input type="radio" name="icons-list" id="icons-help-circle"></input>
+          <label for="icons-help-circle"><i class="icons-help-circle"></i></label>
+          <input type="radio" name="icons-list" id="icons-hosting"></input>
+          <label for="icons-hosting"><i class="icons-hosting"></i></label>
+          <input type="radio" name="icons-list" id="icons-import-concept"></input>
+          <label for="icons-import-concept"><i class="icons-import-concept"></i></label>
+          <input type="radio" name="icons-list" id="icons-info-circle"></input>
+          <label for="icons-info-circle"><i class="icons-info-circle"></i></label>
+          <input type="radio" name="icons-list" id="icons-ip"></input>
+          <label for="icons-ip"><i class="icons-ip"></i></label>
+          <input type="radio" name="icons-list" id="icons-iplb"></input>
+          <label for="icons-iplb"><i class="icons-iplb"></i></label>
+          <input type="radio" name="icons-list" id="icons-key-concept"></input>
+          <label for="icons-key-concept"><i class="icons-key-concept"></i></label>
+          <input type="radio" name="icons-list" id="icons-mail"></input>
+          <label for="icons-mail"><i class="icons-mail"></i></label>
+          <input type="radio" name="icons-list" id="icons-message"></input>
+          <label for="icons-message"><i class="icons-message"></i></label>
+          <input type="radio" name="icons-list" id="icons-network"></input>
+          <label for="icons-network"><i class="icons-network"></i></label>
+          <input type="radio" name="icons-list" id="icons-nutanix-concept"></input>
+          <label for="icons-nutanix-concept"><i class="icons-nutanix-concept"></i></label>
+          <input type="radio" name="icons-list" id="icons-overTheBox"></input>
+          <label for="icons-overTheBox"><i class="icons-overTheBox"></i></label>
+          <input type="radio" name="icons-list" id="icons-partner-platformsh-concept"></input>
+          <label for="icons-partner-platformsh-concept"><i class="icons-partner-platformsh-concept"></i></label>
+          <input type="radio" name="icons-list" id="icons-pen"></input>
+          <label for="icons-pen"><i class="icons-pen"></i></label>
+          <input type="radio" name="icons-list" id="icons-phone-concept"></input>
+          <label for="icons-phone-concept"><i class="icons-phone-concept"></i></label>
+          <input type="radio" name="icons-list" id="icons-phone"></input>
+          <label for="icons-phone"><i class="icons-phone"></i></label>
+          <input type="radio" name="icons-list" id="icons-print"></input>
+          <label for="icons-print"><i class="icons-print"></i></label>
+          <input type="radio" name="icons-list" id="icons-reload-concept"></input>
+          <label for="icons-reload-concept"><i class="icons-reload-concept"></i></label>
+          <input type="radio" name="icons-list" id="icons-search"></input>
+          <label for="icons-search"><i class="icons-search"></i></label>
+          <input type="radio" name="icons-list" id="icons-server"></input>
+          <label for="icons-server"><i class="icons-server"></i></label>
+          <input type="radio" name="icons-list" id="icons-success-circle"></input>
+          <label for="icons-success-circle"><i class="icons-success-circle"></i></label>
+          <input type="radio" name="icons-list" id="icons-tasks"></input>
+          <label for="icons-tasks"><i class="icons-tasks"></i></label>
+          <input type="radio" name="icons-list" id="icons-telecom-ethernet"></input>
+          <label for="icons-telecom-ethernet"><i class="icons-telecom-ethernet"></i></label>
+          <input type="radio" name="icons-list" id="icons-user-ovh-font"></input>
+          <label for="icons-user-ovh-font"><i class="icons-user-ovh-font"></i></label>
+          <input type="radio" name="icons-list" id="icons-user"></input>
+          <label for="icons-user"><i class="icons-user"></i></label>
+          <input type="radio" name="icons-list" id="icons-windows"></input>
+          <label for="icons-windows"><i class="icons-windows"></i></label>
+        </article>
+      </section>
+    </div>
+    </main>
+    <script>
+;const mgricons = (function(){
+  var publicFns = {},
+  bindEvents=function(){
+    document.querySelectorAll('input').forEach((item) => {
+      if(item.name != "icons-list"){
+        item.disabled = true;
+      }
+      item.addEventListener('change', () => {
+        console.log(item);
+        console.log(document.querySelector('input[name="icons-list"]:checked').id);
+        var i=document.createElement('i');
+        i.classList.add(document.querySelector('input[name="icons-list"]:checked').id);
+        document.querySelectorAll('input').forEach((item) => {
+          if(item.name != "icons-list"){
+            item.disabled = false;
+          }
+        });
+
+        if (document.querySelector('input[name="rounded-border"]').checked) {
+          i.classList.add(document.querySelector('input[name="rounded-border"]:checked').id);
+        } else {
+          if (i.classList.contains(document.querySelector('input[name="rounded-border"]').id)){
+            i.classList.remove(document.querySelector('input[name="rounded-border"]').id);
+          }
+        }
+
+        if (document.querySelector('input[name="custom-color"]').checked) {
+          i.classList.add(document.querySelector('input[name="color-list"]:checked').id);
+        } else {
+          if (i.classList.contains(document.querySelector('input[name="color-list"]:checked').id)){
+            i.classList.remove(document.querySelector('input[name="color-list"]:checked').id);
+          }
+        }
+        document.querySelector('.preview-container').innerHTML="";
+        document.querySelector('.preview-container').appendChild(i);
+        var h=document.querySelector('textarea');
+        h.value=document.querySelector('.preview-container').innerHTML;
+        h.focus();
+        h.select();
+        document.execCommand('copy');
+        console.log(i);
+      })
+    })
+  };
+  publicFns.init = function(){
+    bindEvents();
+  };
+  return publicFns;
+})();
+mgricons.init();
+    </script>
+</body>
+</html>
